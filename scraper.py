@@ -20,7 +20,7 @@ for row in csv.DictReader(r.raw):
     if row['wikipedia_url']:
         split = urlsplit(row['wikipedia_url'])
         wikiname = split.path[len('/wiki/'):]
-        wikiname.replace('_', ' ')
+        wikiname = wikiname.replace('_', ' ')
     scraperwiki.sqlite.save(
         unique_keys=['id'],
         data={
